@@ -19,8 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
+        'alive',
+        'no_role',
+        'color',
     ];
 
     /**
@@ -29,7 +30,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -38,8 +38,12 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+
+    public function role(){
+        return $this->hasOne(Role::class);
+    }
+
+    public function playerQuests(){
+        return $this->hasMany(Playerquest::class);
+    }
 }

@@ -9,9 +9,20 @@ class Quest extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'url',
+        'title',
+        'no_place',
+        'order',
+        'locX',
+        'locY',
+    ];
+
     public function playerQuests(){
-        return $this->hasOne(Playerquest::class);
+        return $this->hasMany(Playerquest::class);
     }
 
-    
+    public function place(){
+        return $this->hasOne(Place::class);
+    }
 }
