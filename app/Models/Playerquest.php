@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Playerquest extends Model
 {
     use HasFactory;
-    protected $fillable [
+    protected $fillable = [
         'no_user',
         'no_quest',
         'start',
