@@ -41,10 +41,14 @@ class User extends Authenticatable
      */
 
     public function role(){
-        return $this->hasOne(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function playerQuests(){
         return $this->hasMany(Playerquest::class);
+    }
+
+    public function user(){
+        return $this->hasMany(Cooldown::class);
     }
 }

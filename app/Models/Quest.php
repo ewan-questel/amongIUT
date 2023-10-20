@@ -23,6 +23,6 @@ class Quest extends Model
     }
 
     public function place(){
-        return $this->hasOne(Place::class);
+        return $this->belongsTo(Place::class);
     }
 }
