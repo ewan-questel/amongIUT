@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,7 +14,7 @@ class UserController extends Controller
             'color' => 'required',
         ]);
 
-        $user = new User;
+        $user = Auth::user();
         $user->name = $request->input('name');
         $user->color = $request->input('color');
         $user->save();

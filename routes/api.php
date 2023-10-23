@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/loggin', [UserController::class, 'store']);
+Route::middleware('auth:sanctum')->post('/character', [UserController::class, 'store']);
 Route::get('/lobby', [UserController::class, 'index']);
 Route::get('/questcount', [QuestController::class, 'index']);
